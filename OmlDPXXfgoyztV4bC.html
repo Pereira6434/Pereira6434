@@ -1,0 +1,246 @@
+<html><head><base href="." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rota33 - Transporte Fácil e Seguro</title>
+<style>
+:root {
+  --primary: #FFD700;
+  --secondary: #333;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: var(--white);
+  color: var(--secondary);
+}
+
+.header {
+  background: var(--secondary);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  padding-top: 60px;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.button {
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.primary-button {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+.secondary-button {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.features {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f8f8;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-card svg {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  fill: var(--primary);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <nav class="nav">
+    <a href="https://rota33.com" class="logo">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="#FFD700"/>
+        <path d="M30 50 L50 30 L70 50 L50 70 Z" fill="#333"/>
+      </svg>
+      Rota33
+    </a>
+    <div class="nav-links">
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#motorista">Seja Motorista</a>
+      <a href="#seguranca">Segurança</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content animate-in">
+      <h1>Sua viagem mais inteligente</h1>
+      <p>Conectamos você aos melhores motoristas da sua região com praticidade e segurança.</p>
+      <div class="cta-buttons">
+        <a href="https://rota33.com/passageiro" class="button primary-button">Solicitar Corrida</a>
+        <a href="https://rota33.com/motorista" class="button secondary-button">Seja um Motorista</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="features-grid">
+      <div class="feature-card animate-in">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        <h3>Viagens para qualquer lugar</h3>
+        <p>Chegue ao seu destino com conforto e segurança</p>
+      </div>
+      <div class="feature-card animate-in">
+        <svg viewBox="0 0 24 24">
+          <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+        </svg>
+        <h3>Preços Justos</h3>
+        <p>Tarifas transparentes e competitivas</p>
+      </div>
+      <div class="feature-card animate-in">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+        </svg>
+        <h3>Segurança</h3>
+        <p>Motoristas verificados e viagens monitoradas</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+document.addEventListener('scroll', () => {
+  const cards = document.querySelectorAll('.feature-card');
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top <= window.innerHeight * 0.8) {
+      card.classList.add('animate-in');
+    }
+  });
+});
+</script>
+</body></html>

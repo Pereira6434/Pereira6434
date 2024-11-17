@@ -1,0 +1,183 @@
+<html><head><base href="." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rota33 - Seu aplicativo de viagens</title>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+<style>
+:root {
+    --primary: #FFD700;
+    --dark: #333;
+    --light: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: var(--light);
+}
+
+.header {
+    background: var(--primary);
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark);
+}
+
+.map-container {
+    height: 40vh;
+    width: 100%;
+    background: #eee;
+}
+
+.booking-form {
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    margin-top: -20px;
+    position: relative;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.book-button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    color: var(--dark);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.book-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.driver-info {
+    display: none;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.driver-info.active {
+    display: block;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Rota33</div>
+    </header>
+
+    <div class="map-container" id="map"></div>
+
+    <div class="booking-form">
+        <div class="input-group">
+            <input type="text" id="pickup" placeholder="Local de partida">
+        </div>
+        <div class="input-group">
+            <input type="text" id="destination" placeholder="Destino">
+        </div>
+        <button class="book-button" onclick="requestRide()">Solicitar Viagem</button>
+
+        <div class="driver-info" id="driverInfo">
+            <h3>Motorista a caminho!</h3>
+            <p>Nome do motorista: <span id="driverName"></span></p>
+            <p>Veículo: <span id="carModel"></span></p>
+            <p>Placa: <span id="licensePlate"></span></p>
+            <p>Tempo estimado: <span id="eta"></span></p>
+        </div>
+    </div>
+
+<script>
+let map;
+let markers = [];
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -23.550520, lng: -46.633308}, // São Paulo coordinates
+        zoom: 13
+    });
+
+    // Add click listeners for pickup and destination
+    map.addListener('click', function(e) {
+        placeMarker(e.latLng);
+    });
+}
+
+function placeMarker(location) {
+    if (markers.length >= 2) {
+        markers[0].setMap(null);
+        markers.shift();
+    }
+    
+    const marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+    
+    markers.push(marker);
+}
+
+function requestRide() {
+    const driverInfo = document.getElementById('driverInfo');
+    const drivers = [
+        {name: 'João Silva', car: 'Toyota Corolla', plate: 'ABC1234'},
+        {name: 'Maria Oliveira', car: 'Honda Civic', plate: 'XYZ5678'},
+        {name: 'Pedro Santos', car: 'Hyundai HB20', plate: 'DEF9012'}
+    ];
+
+    const randomDriver = drivers[Math.floor(Math.random() * drivers.length)];
+    
+    document.getElementById('driverName').textContent = randomDriver.name;
+    document.getElementById('carModel').textContent = randomDriver.car;
+    document.getElementById('licensePlate').textContent = randomDriver.plate;
+    document.getElementById('eta').textContent = Math.floor(Math.random() * 10 + 5) + ' minutos';
+
+    driverInfo.classList.add('active');
+}
+
+// Initialize map when page loads
+window.onload = initMap;
+</script>
+</body>
+</html>
